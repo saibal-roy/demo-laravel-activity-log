@@ -23,6 +23,12 @@ Route::get('/', function () {
     $article->title = "test" . time();
     $article->save();
 
+    /**
+     * Added logsActivity for the logged in user changes to itself.
+     */
+    auth()->user()->name = "test" . time();
+    auth()->user()->save();
+
 
     return view('welcome');
 });
